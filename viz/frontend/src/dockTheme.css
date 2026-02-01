@@ -1,0 +1,78 @@
+/* rc-dock dark theme overrides */
+
+.dock-layout {
+  background: #0d0d14;
+}
+
+.dock-panel {
+  background: #0d0d14;
+  border: 1px solid #1a1a24;
+  box-shadow: none;
+}
+
+.dock-panel .dock-bar {
+  background: #12121a;
+  box-shadow: none;
+}
+
+.dock-tab {
+  background: #12121a;
+  color: #666;
+  box-shadow: none;
+  border: none;
+}
+
+.dock-tab:hover {
+  color: #999;
+}
+
+.dock-tab-active,
+.dock-tab-active:hover {
+  color: #ccc;
+  background: #12121a;
+  border-bottom: 1px solid #555;
+  box-shadow: none;
+}
+
+.dock-tabpane {
+  background: #0d0d14;
+}
+
+.dock-divider {
+  background: #1a1a24;
+}
+
+.dock-drop-indicator {
+  box-shadow: none;
+  border: 1px solid #444;
+}
+
+/* Remove all shadows globally */
+.dock-layout *,
+.dock-layout *::before,
+.dock-layout *::after {
+  box-shadow: none !important;
+}
+
+/* Tab close button */
+.dock-tab .dock-tab-close-btn {
+  color: #555;
+}
+
+.dock-tab .dock-tab-close-btn:hover {
+  color: #aaa;
+}
+
+/* Navigation/extra buttons */
+.dock-nav-more,
+.dock-extra-content {
+  color: #555;
+}
+
+.dock-panel-max-btn {
+  color: #555;
+}
+
+.dock-panel-max-btn:hover {
+  color: #aaa;
+}

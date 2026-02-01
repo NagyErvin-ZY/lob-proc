@@ -1,0 +1,8 @@
+replicaCount: 1
+
+image:
+  repository: buni-processor
+  tag: latest
+  pullPolicy: Never
+
+natsUrl: "nats://nats.nats.svc.cluster.local:4222"

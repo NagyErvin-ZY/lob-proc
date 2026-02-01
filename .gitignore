@@ -1,0 +1,33 @@
+build/
+.cache/
+.vscode/
+.idea/
+*.o
+*.a
+*.so
+*.dylib
+CMakeFiles/
+cmake-build-*/
+
+# macOS
+.DS_Store
+
+# Frontend
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Go
+*.test
+*.out
+viz/feeder/feeder
+viz/server/server
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log

@@ -1,0 +1,40 @@
+services:
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    command: ["--addr", "0.0.0.0", "--port", "4222", "--http_port", "8222"]
+
+  viz-feeder:
+    build:
+      context: ./viz/feeder
+      dockerfile: Dockerfile
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      - PUBLISH_ORDERS=false
+
+  processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+
+  viz-server:
+    build:
+      context: ./viz
+      dockerfile: server/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - nats
+      - processor
+    environment:
+      - NATS_URL=nats://nats:4222
+      - PORT=8080
+      - DIST_DIR=/app/dist

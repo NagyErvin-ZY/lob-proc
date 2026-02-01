@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: buni-viz
+  tag: latest
+  pullPolicy: Never
+
+natsUrl: "nats://nats.nats.svc.cluster.local:4222"
+port: 8080
+distDir: "/app/dist"
+
+service:
+  type: NodePort
+  nodePort: 30080

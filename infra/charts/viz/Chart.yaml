@@ -1,0 +1,5 @@
+apiVersion: v2
+name: viz
+description: buni visualization server
+version: 0.1.0
+appVersion: "1.0.0"

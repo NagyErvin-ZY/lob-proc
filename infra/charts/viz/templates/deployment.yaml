@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "viz.fullname" . }}
+  labels:
+    {{- include "viz.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "viz.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "viz.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: viz
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.port }}
+          env:
+            - name: NATS_URL
+              value: {{ .Values.natsUrl | quote }}
+            - name: PORT
+              value: {{ .Values.port | quote }}
+            - name: DIST_DIR
+              value: {{ .Values.distDir | quote }}
